@@ -1,0 +1,139 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.20'
+    id 'antlr'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib
+    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.5.20'
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt'
+    implementation 'junit:junit:4.13.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+    // https://mvnrepository.com/artifact/org.antlr/antlr4
+    antlr 'org.antlr:antlr4:4.9.2'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-kotlin
+    implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.12.4'
+    // https://mvnrepository.com/artifact/commons-codec/commons-codec
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.5'
+}
+
+generateGrammarSource {
+    arguments += ["-visitor", "-long-messages"]
+}
+compileKotlin.dependsOn(generateGrammarSource)
+
+task GenColorMap(type: JavaExec) {
+    mainClass.set('common.HCodeKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task Playground(type: JavaExec) {
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('PlaygroundKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task JavaPreprocessor(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('preprocessor.javapreprocessor.JavaPreprocessorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+// Example of running this task:
+// gradle JavaEvaluator -Pargs="runModelTimeBenchmarker ../saved_model_losses/java_.._.json false" > log.txt
+task JavaEvaluator(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('evaluator.JavaEvaluatorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+
+task JavaScriptPreprocessor(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('preprocessor.javascriptpreprocessor.JavaScriptPreprocessorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task JavaScriptEvaluator(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('evaluator.JavaScriptEvaluatorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task KotlinPreprocessor(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('preprocessor.javascriptpreprocessor.JavaScriptPreprocessorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task KotlinEvaluator(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('evaluator.KotlinEvaluatorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task Python3Preprocessor(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('preprocessor.python3preprocessor.Python3PreprocessorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task Python3Evaluator(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('evaluator.Python3EvaluatorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task CPPPreprocessor(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('preprocessor.cpp.CPPPreprocessorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task CPPEvaluator(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('evaluator.CPPEvaluatorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task CSharpPreprocessor(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('preprocessor.csharppreprocessor.CSharpPreprocessorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task CSharpEvaluator(type: JavaExec) {
+    maxHeapSize("100096M")
+    args findProperty("args").toString().split(" ") ?: ""
+    mainClass.set('evaluator.CSharpEvaluatorKt')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+test {
+    useJUnitPlatform()
+}
+
+processResources {
+    enabled = false
+}
