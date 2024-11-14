@@ -39,7 +39,6 @@ The repository is organised as follows:
 ## :pray: Credits
 
 * [Marco Edoardo Palma](mailto:marcoepalma@ifi.uzh.ch) - University of Zurich, Switzerland
-* [Alex Wolf](mailto:alex.wolf@ifi.uzh.ch) - University of Zurich, Switzerland
+* [Alex Wolf](mailto:wolf@ifi.uzh.ch) - University of Zurich, Switzerland
 * [Pasquale Salza](mailto:salza@ifi.uzh.ch) - University of Zurich, Switzerland
 * [Harald C. Gall](mailto:gall@ifi.uzh.ch) - University of Zurich, Switzerland
-
