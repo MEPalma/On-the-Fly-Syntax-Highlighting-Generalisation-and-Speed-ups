@@ -34,7 +34,7 @@ The repository is organised as follows:
 * [`src/main/resources`](src/main/resources) is the folder from which the dataset is sourced
 * [`src/main/python/highlighter/saved_models`](src/main/python/highlighter/saved_models) is the folder containing the collection of trained models
 * [`src/main/python/highlighter/saved_model_losses`](src/main/python/highlighter/saved_models) is the folder containing the collection of training logs for each trained model
-* [`treesitter_server/`](/treesitter_server) contains all the tree-sitter syntax highlighting resolvers used
+* [`treesitter_servers/`](/treesitter_servers) contains all the tree-sitter syntax highlighting resolvers used
 
 ## :pray: Credits
 
