@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14162905.svg)](https://doi.org/10.5281/zenodo.14162905)
 [![CC BY 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc/4.0/)
 
-> **On-the-Fly Syntax Highlighting: Generalisation and Speed-ups
+> **On-the-Fly Syntax Highlighting: Generalisation and Speed-ups**
 >
 > On-the-fly syntax highlighting involves the rapid association of visual secondary notation with each character of a language derivation.
 This task has grown in importance due to the widespread use of online software development tools, which frequently display source code
